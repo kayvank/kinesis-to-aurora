@@ -1,9 +1,8 @@
 kinesis-to-aurora
 ====
- 
-This is an Idempotent service that persists likes/unlikes user-events from kinesis stream & persisting them in Aurora RDS.  User envents are :
-- likes: store like events against an asset 
-- unlikes: cause deletion of a previously stored like event of an asset
+This is an Idempotent Scala service that persists user-events from kinesis stream to Aurora RDS.
+
+## Purpose
 The main purpose of the project is to demonstrate 
 - http4s
 - kamon
