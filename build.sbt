@@ -4,7 +4,7 @@ import com.typesafe.sbt.packager.SettingsHelper._
 
 organization := "q2io"
 
-name := "user-likes-svc"
+name := "kinesis-to-aurora"
 
 scalaVersion := "2.11.8"
 

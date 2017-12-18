@@ -54,20 +54,20 @@ export JDBC_URL='mysql://$JDBC_USER:$JDBC_PASSWORD@0.0.0.0:3306/$JDBC_DB'
 git clone git@github.com:kayvank/kinesis-to-aurora.git
 cd kinesis-to-aurora
 sbt clean compile  ## to build prject
-sbt test           ## unit test
-##
-### create a zip file containing bash & DOS executables 
-##
+```
 
-##
-### create docker image and publish locally
-##
+#### Test & distribution
+The following will 
+- test
+- dockerize
+- publish docker images
+- create executable scripts
+```
+sbt test
 sbt clean compile universal:packageBin
-
-##
-### create docker image and publish to docker-hub
-##
-sbt clean compile docker:publish
+sbt clean compile docker:stage  docker:publishLocal
+docker images | grep 'kinesis-to-aurora' ## verify your docker image was published locally
+sbt clean compile docker:stage docker:publish
 ```
 
 ####  Running the Project locally
@@ -82,7 +82,9 @@ cd ./scripts/sql
 docker-compose -f ./docker-compose-mysql.yml up -d
 mysql -h 0.0.0.0 -u $JDBC_USER -p $JDBC_DB < ./like_events.sql
 ```
+
 - Setup statsd & graphite
+
 ```
 docker run -d\
  --name graphite\
@@ -92,13 +94,13 @@ docker run -d\
  -p 2023-2024:2023-2024\
  -p 8125:8125/udp\
  -p 8126:8126\
- hopsoft/graphite-statsd```
-- build & run the project
-```
+ hopsoft/graphite-statsd
+ ```
+
 ### TODO
 Put the various docker images into a docker-compose
 
-## execute the following from project root
+#### To run the project
 ```
 sbt clean run 
 ```
@@ -106,6 +108,8 @@ sbt clean run
 ## Deployment
 - local deployment
 ```
+sbt docker clean compile docker:stage docker:publishLocal
+
 docker run \ 
    -p9000:9000 \
    -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} \
@@ -113,7 +117,8 @@ docker run \
    -e KINESIS_STREAM_NAME=${KINESIS_STREAM_NAME} \
    -e JDBC_URL=${JDBC_URL} \
    -e JDBC_PASSWORD=${JDBC_PASSWORD} \
-   -e JDBC_DIRVER=${JDBC_DIRVER} 
+   -e JDBC_DIRVER=${JDBC_DIRVER}  \
+   q2io/kinesis-to-aurora
 ```
 
 ### Sample Json event
