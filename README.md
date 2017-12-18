@@ -1,8 +1,7 @@
-user-likes-svc
+kinesis-to-aurora
 ====
  
-This is an Idempotent service that persists likes/unlikes user-events from kinesis stream & persisting them in Aurora RDS.
-
+This is an Idempotent service that persists likes/unlikes user-events from kinesis stream & persisting them in Aurora RDS.  User envents are :
 - likes: storedas like events against an asset 
 - unlikes: cause deletion of a previously stored like event of an asset
 
