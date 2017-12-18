@@ -2,8 +2,18 @@ kinesis-to-aurora
 ====
  
 This is an Idempotent service that persists likes/unlikes user-events from kinesis stream & persisting them in Aurora RDS.  User envents are :
-- likes: storedas like events against an asset 
+- likes: store like events against an asset 
 - unlikes: cause deletion of a previously stored like event of an asset
+The main purpose of the project is to demonstrate 
+- http4s
+- kamon
+- AWS kinesis & KCL
+- scalaz streams & Task implementation for AWS Kinesis stream
+- Scalaz Task
+- scala & docker
+- doobie  
+- circe
+- statsd 
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -74,8 +84,22 @@ cd ./scripts/sql
 docker-compose -f ./docker-compose-mysql.yml up -d
 mysql -h 0.0.0.0 -u $JDBC_USER -p $JDBC_DB < ./like_events.sql
 ```
+- Setup statsd & graphite
+```
+docker run -d\
+ --name graphite\
+ --restart=always\
+ -p 80:80\
+ -p 2003-2004:2003-2004\
+ -p 2023-2024:2023-2024\
+ -p 8125:8125/udp\
+ -p 8126:8126\
+ hopsoft/graphite-statsd```
 - build & run the project
 ```
+### TODO
+Put the various docker images into a docker-compose
+
 ## execute the following from project root
 sbt clean run 
 
@@ -123,6 +147,7 @@ mysql> describe like_events;
 * **Kayvan Kazeminejad** - *Intitial work*
 
 ### References
+- [scalaz](https://github.com/scalaz)
 - [doobie](https://github.com/tpolecat/doobie)
 - [circe](https://github.com/circe)
 - [http4s](https://github.com/http4s/http4s)
