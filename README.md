@@ -28,12 +28,7 @@ sbt clean compile universal:packageBin // to generate an executable
 sbt clean compile docker:publishLocal
 ```
 
-##### Configuration
-See [application.conf](https://github.com/kayvank/user-likes-svc/blob/docs/src/main/resources/application.conf) for the required environmnet variables.
-Required environment variables have the format ```${?}``` 
-
 ### Table structure
-
 ```
 mysql> describe like_events;
 +-------------|--------------|------|-----|-------------------|-------+
@@ -49,7 +44,6 @@ mysql> describe like_events;
 ```
 
 ### References
-
 - [doobie](https://github.com/tpolecat/doobie)
 - [circe](https://github.com/circe)
 - [http4s](https://github.com/http4s/http4s)
