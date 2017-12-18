@@ -8,7 +8,6 @@ The main purpose of the project is to demonstrate
 - kamon
 - AWS kinesis & KCL
 - scalaz streams & Task implementation for AWS Kinesis stream
-- Scalaz Task
 - scala & docker
 - doobie  
 - circe
