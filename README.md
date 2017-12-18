@@ -1,5 +1,3 @@
-![alt desing](https://github.com/kayvank/user-likes-svc/blob/master/docs/images/diagram-highlevel.jpg)
-
 user-likes-svc
 ====
  
