@@ -127,6 +127,7 @@ docker run \
 ```
 
 ### Table structure
+
 ```
 mysql> describe like_events;
 +-------------|--------------|------|-----|-------------------|-------+
