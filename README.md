@@ -97,7 +97,6 @@ docker run -d\
  hopsoft/graphite-statsd
  ```
 
-- build & run the project
 ### TODO
 Put the various docker images into a docker-compose
 
