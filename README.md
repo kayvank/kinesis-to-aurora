@@ -54,15 +54,19 @@ export JDBC_URL='mysql://$JDBC_USER:$JDBC_PASSWORD@0.0.0.0:3306/$JDBC_DB'
 git clone git@github.com:kayvank/kinesis-to-aurora.git
 cd kinesis-to-aurora
 sbt clean compile  ## to build prject
-sbt test           ## unit test
-### create a zip file containing bash & DOS executables 
+```
+
+#### Test & distribution
+The following will 
+- test
+- dockerize
+- publish docker images
+- create executable scripts
+```
+sbt test
 sbt clean compile universal:packageBin
-##
-### create docker image and publish locally
 sbt clean compile docker:stage  docker:publishLocal
-## verify your docker image was published locally
-docker images | grep 'kinesis-to-aurora'
-### create docker image and publish to docker-hub
+docker images | grep 'kinesis-to-aurora' ## verify your docker image was published locally
 sbt clean compile docker:stage docker:publish
 ```
 
