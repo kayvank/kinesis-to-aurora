@@ -99,8 +99,8 @@ docker run -d\
 Put the various docker images into a docker-compose
 
 ## execute the following from project root
+```
 sbt clean run 
-
 ```
 
 ## Deployment
