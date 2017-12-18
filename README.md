@@ -126,8 +126,8 @@ docker run \
 }
 ```
 
-### Table structure
 
+### Table structure
 ```
 mysql> describe like_events;
 +-------------|--------------|------|-----|-------------------|-------+
@@ -141,6 +141,7 @@ mysql> describe like_events;
 | created_at  | timestamp    | NO   |     | CURRENT_TIMESTAMP |       |
 +-------------|--------------|------|-----|-------------------|-------+
 ```
+
 
 ## Authors
 * **Kayvan Kazeminejad** - *Intitial work*
